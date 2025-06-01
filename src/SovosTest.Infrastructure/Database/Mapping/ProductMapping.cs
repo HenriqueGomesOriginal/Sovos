@@ -12,13 +12,13 @@ public class ProductMapping : Profile
     /// </summary>
     public ProductMapping()
     {
-        CreateDocumentProfile();
+        CreateProductProfile();
     }
 
     /// <summary>
     /// Mapping between db entity Product and the domain Product
     /// </summary>
-    private void CreateDocumentProfile()
+    private void CreateProductProfile()
     {
         // Mapping from database model to domain
         CreateMap<Models.Product, Domain.Entities.Product>().

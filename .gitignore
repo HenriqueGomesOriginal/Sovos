@@ -170,7 +170,7 @@ AutoTest.Net/
 # Installshield output folder
 [Ee]xpress/
 
-# DocProject is a documentation generator add-in
+# DocProject is a productation generator add-in
 DocProject/buildhelp/
 DocProject/Help/*.HxT
 DocProject/Help/*.HxC
@@ -322,8 +322,8 @@ paket-files/
 # FAKE - F# Make
 .fake/
 
-# CodeRush personal settings
-.cr/personal
+# CodeRush productal settings
+.cr/productal
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
@@ -484,7 +484,7 @@ obj/
 
 # Installshield output folder
 
-# DocProject is a documentation generator add-in
+# DocProject is a productation generator add-in
 
 # Click-Once directory
 
@@ -555,7 +555,7 @@ obj/
 
 # FAKE - F# Make
 
-# CodeRush personal settings
+# CodeRush productal settings
 
 # Python Tools for Visual Studio (PTVS)
 
