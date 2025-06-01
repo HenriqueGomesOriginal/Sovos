@@ -1,6 +1,6 @@
 using SovosTest.Infrastructure.Models;
 
-namespace SovosTest.Infrastructure.Database.Models;
+namespace SovosTest.Infrastructure.Models;
 
 public class Product : IBaseTable<Guid>
 {

@@ -40,8 +40,8 @@ public class ProductRepository : IProductRepository
         _context.Add(dbResult);
         await _context.SaveChangesAsync();
 
-        // Add new ResultCreatedEvent domain event and publish 
-        product.DomainEvents.Add(new ResultCreatedEvent(product));
+        // Add new ProductCreatedEvent domain event and publish 
+        product.DomainEvents.Add(new ProductCreatedEvent(product));
         await _domainEventService.Publish(product.DomainEvents);
 
         return product;
@@ -64,8 +64,8 @@ public class ProductRepository : IProductRepository
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            // Add new ResultDeletedEvent domain event and publish
-            product.DomainEvents.Add(new ResultDeletedEvent(product));
+            // Add new ProductDeletedEvent domain event and publish
+            product.DomainEvents.Add(new ProductDeletedEvent(product));
             await _domainEventService.Publish(product.DomainEvents);
         }
         else
@@ -80,7 +80,7 @@ public class ProductRepository : IProductRepository
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public async Task<List<Domain.Entities.Product>> GetAllResult(CancellationToken cancellationToken)
+    public async Task<List<Domain.Entities.Product>> GetAll(CancellationToken cancellationToken)
     {
         var product = await _context.Product.ToListAsync(cancellationToken);
 
