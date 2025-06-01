@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Asp.Versioning.ApiExplorer;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -8,7 +8,7 @@ using System.Reflection;
 namespace SovosTest.Api.Options;
 
 /// <summary>
-/// Class designed to configure swagger and display available API versions and any XML documentation.
+/// Class designed to configure swagger and display available API versions and any XML productation.
 /// </summary>
 [ExcludeFromCodeCoverage]
 public class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
