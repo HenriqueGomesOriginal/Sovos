@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using MediatR;
 using SovosTest.Application.Common.Interfaces;
 
 namespace SovosTest.Application.Product.Commands.CreateProduct;
 
-public record CreateProductCommand : IValidatableObject, IMapFrom<Domain.Entities.Product>, IRequest<CreateProductCommandResult>
+public record CreateProductCommand : IMapFrom<Domain.Entities.Product>, IRequest<CreateProductCommandResult>
 {
     /// <summary>
     /// Gets or sets the name of the product.
@@ -24,11 +25,13 @@ public record CreateProductCommand : IValidatableObject, IMapFrom<Domain.Entitie
     [Required]
     public required decimal Price { get; init; }
 
-    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    public void Mapping(Profile profile)
     {
-        if (Price <= 0)
-        {
-            yield return new ValidationResult("Price must be greater than zero.", new[] { nameof(Price) });
-        }
+        profile.CreateMap<CreateProductCommand, Domain.Entities.Product>().
+            ForMember(a => a.Id, a => a.MapFrom(b => Guid.NewGuid())).
+            ForMember(a => a.Description, a => a.MapFrom(b => b.Description)).
+            ForMember(a => a.Description, a => a.MapFrom(b => b.Price)).
+            // ForMember(a => a.Description, a => a.MapFrom(b => b.Description)).
+            ForMember(a => a.DomainEvents, a => a.Ignore());
     }
 }

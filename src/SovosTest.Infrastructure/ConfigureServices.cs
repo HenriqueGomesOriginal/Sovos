@@ -37,6 +37,9 @@ public static class ConfigureServices
         services.AddTransient<ICurrentUserService, CurrentUserService>();
         services.AddScoped<IProductRepository, ProductRepository>();
 
+        services.AddHealthChecks().
+            AddDbContextCheck<ContextDatabase>();
+
         return services;
     }
 }

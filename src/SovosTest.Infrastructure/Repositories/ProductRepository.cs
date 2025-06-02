@@ -70,7 +70,7 @@ public class ProductRepository : IProductRepository
         }
         else
         {
-            throw new ResultNotFoundException($"Product not found. ResultId: {product.Id}");
+            throw new ProductNotFoundException($"Product not found. ResultId: {product.Id}");
         }
     }
 
@@ -104,7 +104,7 @@ public class ProductRepository : IProductRepository
         }
         else
         {
-            throw new ResultNotFoundException($"Product not found. ProductId: {id}");
+            throw new ProductNotFoundException($"Product not found. ProductId: {id}");
         }
     }
 }

@@ -5,11 +5,11 @@ using SovosTest.Application.Common.Interfaces;
 namespace SovosTest.Infrastructure.Database;
 
 /// <summary>
-/// Database context used for Resuls management
+/// Database context used for Product management
 /// </summary>
 public class ContextDatabase : DbContext
 {
-    private const string RESULT_SCHEMA = "Result";
+    private const string RESULT_SCHEMA = "Product";
     private readonly ICurrentUserService _userService;
 
     /// <summary>
@@ -23,7 +23,7 @@ public class ContextDatabase : DbContext
     }
 
     /// <summary>
-    /// Gets or sets a list of Result
+    /// Gets or sets a list of Product entities
     /// </summary>
     /// <value></value>
     public virtual DbSet<Models.Product> Product { get; set; } = null!;

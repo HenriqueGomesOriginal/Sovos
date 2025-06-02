@@ -6,15 +6,15 @@ namespace SovosTest.Domain.Common.Exceptions;
 /// <summary>
 /// Exception thrown when a Result is not found.
 /// </summary>
-public class ResultNotFoundException : Exception
+public class ProductNotFoundException : Exception
 {
     [ExcludeFromCodeCoverage]
-    public ResultNotFoundException(string message) : base(message)
+    public ProductNotFoundException(string message) : base(message)
     {
     }
     
     [ExcludeFromCodeCoverage]
-    public ResultNotFoundException(string message, Exception innerException) : base(message, innerException)
+    public ProductNotFoundException(string message, Exception innerException) : base(message, innerException)
     {
     }
 }

@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using SovosTest.Api.Options;
-using SovosTest.Application;
 using SovosTest.Infrastructure;
+using SovosTest.Application;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
@@ -27,6 +27,13 @@ public static class Startup
 
         // add application layer
         services.AddApplicationServices();
+
+        // Add the HeaderPropagation middleware with the "Authorization" and "CorrelationId" headers to the DI container.
+        services.AddHeaderPropagation(options =>
+        {
+            options.Headers.Add("Authorization");
+            options.Headers.Add("CorrelationId");
+        });
 
         // add Api versioning 
         services.AddApiVersioning(options =>
@@ -93,6 +100,7 @@ public static class Startup
         app.UseHttpsRedirection();
         app.UseAuthentication();
         app.UseAuthorization();
+        app.MapHealthChecks("/health");
         app.MapControllers().
             RequireAuthorization();
     }

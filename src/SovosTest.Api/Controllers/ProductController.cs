@@ -1,10 +1,8 @@
-using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SovosTest.Api.Models;
 using SovosTest.Application.Product.Commands.CreateProduct;
-using SovosTest.Application.Product.Queries.GetAll;
 
 namespace SovosTest.Api.Controllers;
 
