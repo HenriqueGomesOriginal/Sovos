@@ -1,7 +1,7 @@
 namespace SovosTest.Domain.Interfaces;
 
 /// <summary>
-/// Product repository, is responsible for manipulate Prodcut table operations
+/// Product repository, is responsible for manipulate Product table operations
 /// </summary>
 public interface IProductRepository
 {

@@ -13,7 +13,7 @@ namespace SovosTest.Api.Controllers;
 /// </summary>
 [ApiController]
 [Route("api/v{version:apiVersion}/[controller]")]
-[ApiVersion(AppApiVersion.V1)]
+[Asp.Versioning.ApiVersion(AppApiVersion.V1)]
 public class ProductController : ControllerBase
 {
     private readonly IMediator _mediator;
