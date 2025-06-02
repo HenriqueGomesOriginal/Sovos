@@ -25,31 +25,6 @@ public class ProductController : ControllerBase
         _mediator = mediator;
     }
 
-    /// <sumary>
-    /// Retrieves an OXP Product By Id 
-    /// </sumary>
-    /// <param name="query"></param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
-    /// <exception cref="NotSupportedException"></exception>
-    // [HttpGet("{ProductId:guid}")]
-    // [Authorize(Policy = AppAuthorizationPolicy.ReadAccess)]
-    // [ProducesResponseType(StatusCodes.Status200OK)]
-    // [ProducesResponseType(StatusCodes.Status404NotFound)]
-    // public async Task<ActionResult<GetProductGetAllResult>> GetAsync([FromRoute] GetProductGetAll query, CancellationToken cancellationToken)
-    // {
-    //     var product = await _mediator.Send(query, cancellationToken);
-
-    //     var resultStatus = product?.Result;
-
-    //     return resultStatus switch
-    //     {
-    //         GetProductGetAllResult.ProductGetAllResultStatus.ProductFound => Ok(product),
-    //         GetProductGetAllResult.ProductGetAllResultStatus.ProductNotFound => NotFound(product),
-    //         _ => throw new NotSupportedException($"The following product is not supported. Result: {resultStatus}")
-    //     };
-    // }
-
     /// <summary>
     /// Creates a new Product
     /// </summary>
@@ -76,32 +51,4 @@ public class ProductController : ControllerBase
             _ => throw new NotSupportedException($"The following product is not supported. Result: {resultStatus}")
         };
     }
-
-    /// <summary>
-    /// Deletes a product by its ID
-    /// </summary>
-    /// <remarks>
-    /// Will return a 404 Not Found if the product with the specified ID does not exist
-    /// </remarks>
-    /// <param name="id">The ID of the product to delete</param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
-    // [HttpDelete("{id}")]
-    // [Authorize(Policy = AppAuthorizationPolicy.WriteAccess)]
-    // [ProducesResponseType(StatusCodes.Status202Accepted)]
-    // [ProducesResponseType(StatusCodes.Status404NotFound)]
-    // public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
-    // {
-    //     var request = new DeleteProductCommand { ProductId = id };
-    //     var product = await _mediator.Send(request, cancellationToken);
-
-    //     var resultStatus = product?.Result;
-
-    //     return resultStatus switch
-    //     {
-    //         DeleteProductCommandResult.DeleteProductCommandResultStatus.ProductDeleted => Accepted(),
-    //         DeleteProductCommandResult.DeleteProductCommandResultStatus.ProductNotFound => NotFound(),
-    //         _ => throw new NotSupportedException($"The following product is not supported. Result: {resultStatus}")
-    //     };
-    // }
 }

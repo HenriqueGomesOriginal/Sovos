@@ -20,6 +20,12 @@ public record CreateProductCommand : IMapFrom<Domain.Entities.Product>, IRequest
     public required string Description { get; init; }
 
     /// <summary>
+    /// Gets or sets the category of the product.
+    /// </summary>
+    [Required]
+    public required string Category { get; init; }
+
+    /// <summary>
     /// Gets or sets the price of the product.
     /// </summary>
     [Required]
@@ -31,7 +37,7 @@ public record CreateProductCommand : IMapFrom<Domain.Entities.Product>, IRequest
             ForMember(a => a.Id, a => a.MapFrom(b => Guid.NewGuid())).
             ForMember(a => a.Description, a => a.MapFrom(b => b.Description)).
             ForMember(a => a.Description, a => a.MapFrom(b => b.Price)).
-            // ForMember(a => a.Description, a => a.MapFrom(b => b.Description)).
+            ForMember(a => a.Category, a => a.MapFrom(b => b.Category)).
             ForMember(a => a.DomainEvents, a => a.Ignore());
     }
 }

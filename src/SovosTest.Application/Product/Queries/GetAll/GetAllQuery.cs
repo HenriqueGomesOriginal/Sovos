@@ -1,5 +1,4 @@
 using MediatR;
-using System.ComponentModel.DataAnnotations;
 using SovosTest.Domain.Interfaces;
 using AutoMapper;
 
@@ -9,7 +8,7 @@ namespace SovosTest.Application.Product.Queries.GetAll;
 /// Query to retrieve a Product by Id
 /// </summary>
 /// <value></value>
-public sealed class GetAllQueryItem : IRequest<GetAllQueryResult>
+public sealed class GetAllQuery : IRequest<GetAllQueryResult>
 {
 }
 
@@ -17,7 +16,7 @@ public sealed class GetAllQueryItem : IRequest<GetAllQueryResult>
 /// Query handler to retrieve a product by their Id
 /// </summary>
 /// <value></value>
-public class GetProductGetAllHandler : IRequestHandler<GetAllQueryItem, GetAllQueryResult>
+public class GetProductGetAllHandler : IRequestHandler<GetAllQuery, GetAllQueryResult>
 {
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
@@ -28,7 +27,7 @@ public class GetProductGetAllHandler : IRequestHandler<GetAllQueryItem, GetAllQu
         _mapper = mapper;
     }
 
-    public async Task<GetAllQueryResult> Handle(GetAllQueryItem request, CancellationToken cancellationToken)
+    public async Task<GetAllQueryResult> Handle(GetAllQuery request, CancellationToken cancellationToken)
     {
         var requestedResult = await _productRepository.GetAll(cancellationToken);
         var mappedResult = _mapper.Map<List<GetAllQueryItem>>(requestedResult);

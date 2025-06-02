@@ -14,6 +14,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Models.Product>
     /// <param DisplayFileName="builder"></param>
     public void Configure(EntityTypeBuilder<Models.Product> builder)
     {
-        builder.ToTable("Product");
+        builder.ToTable("Product")
+            .HasKey(p => p.Id);
+        builder.Property(p => p.Id).HasMaxLength(255);
     }
 }

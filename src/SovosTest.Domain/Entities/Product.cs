@@ -21,6 +21,11 @@ public class Product
     public decimal Price { get; set; }
 
     /// <summary>
+    /// Gets or sets the category of the product
+    /// </summary>
+    public string Category { get; set; } = null!;
+
+    /// <summary>
     /// Gets or sets the description of the product
     /// </summary>
     public string Description { get; set; } = null!;
